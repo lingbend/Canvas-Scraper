@@ -29,7 +29,7 @@ def main():
         url = root + '/courses/' + course_num + '/pages/' + i.url
         print(url) # displaying URL
         if requests.get(url).status_code != 200: # checking if website doesn't give an error code
-            print('error')
+            print('Bad status code, continuing...')
         else:
             new_page_list.append(i.url) # adding the unique part of the URL to a list
         # time.sleep(1)
