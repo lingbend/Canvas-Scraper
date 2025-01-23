@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 from canvasapi import Canvas
-import time
-import webbrowser
 from CanvasKeys import keys, base_urls
 import sys
 
@@ -32,7 +30,6 @@ def main():
             print('Bad status code, continuing...')
         else:
             new_page_list.append(i.url) # adding the unique part of the URL to a list
-        # time.sleep(1)
     important_pages = []
 
     for j in new_page_list: # printing the url of each page
