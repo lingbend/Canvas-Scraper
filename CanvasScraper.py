@@ -33,15 +33,23 @@ def main():
         else:
             new_page_list.append(i.url) # adding the unique part of the URL to a list
         time.sleep(1)
-    h5p_pages = []
+    important_pages = []
 
     for j in new_page_list: # printing the url of each page
         print(j)
         html_page = course.get_page(j).body
-        if 'byu.h5p.com' in html_page or '585/external_tools/retrieve?' in html_page or 'h5p-iframe' in html_page:
-            h5p_pages.append('https://byuis.instructure.com/courses/585/pages/' + j)
+        if (mode == "-h"):
+            h5p_mode(html_page, important_pages, j)
 
-    print(h5p_pages)
+    print(important_pages)
+
+def h5p_mode(page_body, important_pages, j):
+    if 'byu.h5p.com' in page_body or '585/external_tools/retrieve?' in page_body or 'h5p-iframe' in page_body:
+        important_pages.append('https://byuis.instructure.com/courses/585/pages/' + j)
+
+
+
+
 
 if __name__ == "__main__":
     main()
