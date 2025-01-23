@@ -39,13 +39,13 @@ def main():
         print(j)
         html_page = course.get_page(j).body
         if (mode == "-h"):
-            h5p_mode(html_page, important_pages, j)
+            h5p_mode(html_page, important_pages, j, root, course_num)
 
     print(important_pages)
 
-def h5p_mode(page_body, important_pages, j):
-    if 'byu.h5p.com' in page_body or '585/external_tools/retrieve?' in page_body or 'h5p-iframe' in page_body:
-        important_pages.append('https://byuis.instructure.com/courses/585/pages/' + j)
+def h5p_mode(page_body, important_pages, j, root, course_num):
+    if '.h5p.com' in page_body or (course_num + '/external_tools/retrieve?') in page_body or 'h5p-iframe' in page_body:
+        important_pages.append(root + '/courses/' + course_num + '/pages/' + j)
 
 
 
