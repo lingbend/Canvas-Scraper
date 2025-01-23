@@ -13,9 +13,9 @@ def main():
         print("""Too few arguments, give arguments in the form of
                python CanvasScraper.py domain_index(int) course_number output_file_name mode""")
         exit()
-    domain = int(sys.argv[1] - 1)
+    domain = int(sys.argv[1]) - 1
     current_api_key = keys[domain]
-    root = base_urls[1]
+    root = base_urls[domain]
     course_num = sys.argv[2]
     outfile_name = sys.argv[3]
     mode = sys.argv[4]
