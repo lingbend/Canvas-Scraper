@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 import requests
 from canvasapi import Canvas
 from CanvasKeys import keys, base_urls
