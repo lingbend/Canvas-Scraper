@@ -26,8 +26,9 @@ def main():
     for i in page_list: # getting each page's URL and checking if valid
         url = root + '/courses/' + course_num + '/pages/' + i.url
         # print(url) # displaying URL
-        if requests.get(url).status_code != 200: # checking if website doesn't give an error code
-            print('Bad status code, continuing...')
+        code = requests.get(url).status_code
+        if code != 200: # checking if website doesn't give an error code
+            print('Bad status code, continuing...' + code)
         else:
             new_page_list.append(i.url) # adding the unique part of the URL to a list
     important_pages = []
@@ -43,7 +44,7 @@ def main():
     # print("\nPages matching criteria:\n")
     output_file = open(outfile_name, "w")
     for k in important_pages:
-        output_file.write(k)
+        output_file.write(k + "\n")
     output_file.close()
 
 def h5p_mode(page_body, important_pages, j, root, course_num):
