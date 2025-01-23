@@ -27,7 +27,7 @@ def main():
         # print(url) # displaying URL
         code = requests.get(url).status_code
         if code != 200: # checking if website doesn't give an error code
-            print('Bad status code, continuing...' + code)
+            print('Bad status code,' + code + ', continuing...')
         else:
             new_page_list.append(i.url) # adding the unique part of the URL to a list
     important_pages = []
