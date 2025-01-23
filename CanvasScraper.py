@@ -42,8 +42,10 @@ def main():
 
     # print("\nPages matching criteria:\n")
     output_file = open(outfile_name, "w")
+    output_file.write('<!DOCTYPE html>\n<html>\n<body>')
     for k in important_pages:
-        output_file.write(k + "\n")
+        output_file.write('<p><a href="' + k + '">' + k + '</a></p>' + "\n")
+    output_file.write('</body>\n</html>\n')
     output_file.close()
 
 def h5p_mode(page_body, important_pages, j, root, course_num):
