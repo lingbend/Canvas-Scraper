@@ -9,7 +9,7 @@ import sys
 
 
 def main():
-    domain = sys.argv[1] # Gets domain number from keyfile
+    domain = int(sys.argv[1]) # Gets domain number from keyfile
     current_api_key = keys[domain]
     root = base_urls[1]
     course_num = sys.argv[2]
@@ -36,3 +36,6 @@ def main():
             h5p_pages.append('https://byuis.instructure.com/courses/585/pages/' + j)
 
     print(h5p_pages)
+
+if __name__ == "__main__":
+    main()
