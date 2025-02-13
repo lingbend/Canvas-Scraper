@@ -22,16 +22,18 @@ def main():
     page_list = course.get_pages() # Gets a list of all the course's regular pages as an object
 
     new_page_list = []
+    print('Retrieving page urls:')
     for i in page_list: # getting each page's URL and checking if valid
         url = root + '/courses/' + course_num + '/pages/' + i.url
         # print(url) # displaying URL
         code = requests.get(url).status_code
         if code != 200: # checking if website doesn't give an error code
-            print('Bad status code,' + code + ', continuing...')
+            print('\nBad status code,' + code + ', continuing...')
         else:
             new_page_list.append(i.url) # adding the unique part of the URL to a list
+        print('.', end="")
     important_pages = []
-
+    print('Filtering urls:')
     for j in new_page_list: # printing the url of each page
         # print(j)
         html_page = course.get_page(j).body
@@ -39,12 +41,14 @@ def main():
             continue
         elif (mode == "-h"):
             h5p_mode(html_page, important_pages, j, root, course_num)
+            print('.', end="")
 
-    # print("\nPages matching criteria:\n")
+    print('Adding urls to html file:')
     output_file = open(outfile_name, "w")
     output_file.write('<!DOCTYPE html>\n<html>\n<body>')
     for k in important_pages:
         output_file.write('<p><a href="' + k + '">' + k + '</a></p>' + "\n")
+        print('.', end="")
     output_file.write('</body>\n</html>\n')
     output_file.close()
 
