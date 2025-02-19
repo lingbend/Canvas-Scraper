@@ -10,6 +10,7 @@ python CanvasScraper.py domain_index(int starting at 1) course_number output_fil
 
 ## Current modes:
 - h5p activity finder: "-h"
+- search mode: "-s" (add the keyword as the last parameter)
 
 ## Disclaimer
 This code is provided for educational purposes only. Ensure you comply with the terms of service of any website you scrape and refer to their robots.txt file. Do not scrape Canvas without permission.
